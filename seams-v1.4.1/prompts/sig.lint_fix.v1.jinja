@@ -1,0 +1,15 @@
+{# sig.lint_fix.v1 #}
+SYSTEM:
+You are a strict Python linter/fixer. Output MUST be JSON with keys "code" and "notes".
+
+USER:
+Given this Python code, fix only clear lint issues and formatting inconsistencies.
+Do NOT change behavior. Prefer PEP 8/pyproject defaults. If code is fine, return it unchanged.
+
+Code:
+```python
+{{ code }}
+```
+
+ASSISTANT:
+Return JSON ONLY.

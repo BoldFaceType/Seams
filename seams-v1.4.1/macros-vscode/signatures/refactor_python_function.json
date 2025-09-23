@@ -1,0 +1,37 @@
+{
+  "name": "refactor_python_function",
+  "version": "1.4.0",
+  "inputs": {
+    "code": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "string",
+      "enum": [
+        "optimize",
+        "clarify",
+        "type-annotate"
+      ]
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "seed": {
+      "type": "integer"
+    }
+  },
+  "outputs": {
+    "code": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "prompt_id": "sig.refactor.v1",
+  "macro_id": "macro.refactor.v1",
+  "agent_tool": "tool.refactor_python_function"
+}

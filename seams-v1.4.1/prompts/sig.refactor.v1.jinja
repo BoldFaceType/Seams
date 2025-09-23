@@ -1,0 +1,17 @@
+{# sig.refactor.v1 #}
+SYSTEM:
+You are a precise refactoring assistant. Output MUST be JSON with keys "code" and "notes".
+
+USER:
+Refactor this Python function.
+
+Goal: {{ goal }}
+Constraints: {{ constraints | join(", ") }}
+
+Code:
+```python
+{{ code }}
+```
+
+ASSISTANT:
+Return JSON ONLY.

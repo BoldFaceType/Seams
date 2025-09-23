@@ -1,0 +1,41 @@
+{
+  "name": "seams-macros",
+  "displayName": "Seams Macros",
+  "version": "1.4.1",
+  "publisher": "jeremie",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:macro.run",
+    "onCommand:macro.menu",
+    "onCommand:macro.graphMenu"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "macro.run",
+        "title": "Seams: Run Macro (refactor)"
+      },
+      {
+        "command": "macro.menu",
+        "title": "Seams: Prompt Menu"
+      },
+      {
+        "command": "macro.graphMenu",
+        "title": "Seams: Graph Menu"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -w -p ."
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.4.0",
+    "esbuild": "^0.21.0"
+  },
+  "dependencies": {}
+}

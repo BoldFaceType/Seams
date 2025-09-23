@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seams-agent-core"
+version = "1.4.1"
+description = "Seams: minimal agent tool server with signature and graph seams"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "pydantic>=2.7.0",
+    "jinja2>=3.1.0",
+    "typing_extensions>=4.8.0",
+    "httpx>=0.27.0",
+    "pydantic-graph>=1.0.9"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = {find = {where = ["src"]}}
+include-package-data = true
