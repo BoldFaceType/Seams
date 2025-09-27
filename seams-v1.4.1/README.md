@@ -1,5 +1,15 @@
 # Ship the Seams — v1.4.1 (Prompts + CLI + Server + Graphs)
 
+## 🔐 Authentication Required
+
+Before using Seams, you need to configure authentication. See [**../AUTH_TOKENS.md**](../AUTH_TOKENS.md) for detailed instructions.
+
+**Quick start options:**
+- **Free**: Use local models (LM Studio or Ollama) 
+- **Paid**: Get API keys from [OpenAI](https://platform.openai.com/api-keys) or [Anthropic](https://console.anthropic.com/)
+
+Then run: `python seams.py configure`
+
 ## Quickstart
 1) Start a local model (LM Studio or Ollama), then auto-configure:
 ```bash
