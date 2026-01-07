@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip:*)",
+      "mcp__MCP_DOCKER__get_file_contents",
+      "Bash(uv sync:*)",
+      "Bash(make check:*)",
+      "Bash(uv run ruff:*)",
+      "Bash(uv run bandit:*)",
+      "Bash(uv run mypy:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

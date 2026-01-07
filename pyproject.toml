@@ -1,0 +1,127 @@
+# pyproject.toml - Python package configuration (PEP 621)
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "seams"
+version = "0.1.0"
+description = "Seams - Connecting components seamlessly"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "Jeremie", email = "boldface@example.com" }
+]
+keywords = ["automation", "integration", "pipeline"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.8",
+    "pre-commit>=3.0",
+    "mypy>=1.0",
+    "bandit>=1.7",
+]
+
+[project.urls]
+Homepage = "https://github.com/BoldFaceType/Seams"
+Repository = "https://github.com/BoldFaceType/Seams"
+Issues = "https://github.com/BoldFaceType/Seams/issues"
+
+# ============================================================================
+# Tool Configuration
+# ============================================================================
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/seams"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+    "ARG",    # flake8-unused-arguments
+    "SIM",    # flake8-simplify
+]
+ignore = [
+    "E501",   # line too long (handled by formatter)
+    "B008",   # function call in default argument
+    "B905",   # zip without strict=
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["seams"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+]
+
+[tool.coverage.run]
+source = ["src/seams"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+    "if __name__ == .__main__.:",
+]
+fail_under = 80
+show_missing = true
+
+[tool.mypy]
+# Strict mode - enforces maximum type safety
+strict = true
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_any_unimported = false
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+check_untyped_defs = true
+strict_equality = true
+# Source paths
+files = ["src", "tests"]
+# Ignore missing imports for third-party packages without stubs
+ignore_missing_imports = false
+
+[tool.bandit]
+# Security scanning configuration
+targets = ["src"]
+exclude_dirs = ["tests", ".venv", "build"]
+skips = []  # No skipped tests by default
